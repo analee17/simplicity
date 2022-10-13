@@ -1,0 +1,269 @@
+* { box-sizing: border-box; }
+
+/* CSS Reset (removendo espaçamento padrão dos elementos indicados */
+body, h1, h2, p, figure {
+    margin: 0;
+    padding: 0;
+}
+
+/* torna imagens flexíveis */
+img { max-width: 100%; }
+
+body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+a { text-decoration: none;
+
+
+}
+
+header { 
+
+    text-align: center;
+    height: 100px;
+    padding-top: 10px;
+}
+
+h1, nav { text-transform: uppercase;}
+
+h1 {
+    font-size: 25px;
+}
+
+h1 a{
+   background-color: black;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   color: white;
+   padding: 5px 15px;
+   border-radius: 5px;
+   font-weight: normal;
+}
+
+nav {
+    /* background-color: yellow; */
+    margin-top: 10px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+
+/* margin é fora, afasta espaço entre os elementos, padding é dentro */
+}
+
+/* Regra de estado inicial do link */
+nav a {
+    font-weight: bold;
+    color: black;
+    padding: 10px;
+    transition: 500ms;
+
+}
+
+/* Regra de acionamento do link */
+nav a:hover, nav a:focus {
+    background-color: rgba(128, 128, 128, 0.288);
+    
+}
+
+/* Regras de conteúdo (articles) */
+.destaque  {
+     background-image: url(../imagens/fundo-destaque.jpg);
+     height: 500px;
+     color: white;
+     text-align: center;
+
+     background-attachment: fixed;
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+
+     /* Alinhando todos os itens juntos  */
+
+     align-content: center;
+
+    }
+
+    .destaque h2 {
+        font-size: 64px;
+        animation-name: aparecer;
+        animation-duration: 2s;
+    }
+
+    .destaque p {
+        font-size: 32px;
+        font-weight: bold;
+        animation-name: aparecer;
+        animation-duration: 2s;
+        animation-delay: 2s;
+        animation-fill-mode: backwards;} 
+
+    
+        /* Regra de animação, é necessario aplicar a propriedade animação nas regras correspondentes */
+    
+    @keyframes aparecer {
+    from { opacity: 0;}
+    to { opacity: 1;}
+  }
+
+  article h2 {
+    text-align: center;
+    padding: 20px;
+  }
+
+  article p { padding: 5px 10px; }
+
+  figure {
+     padding: 5px 10px; 
+     text-align: center;
+}
+
+
+  .historia {
+        background-image: url(../imagens/fundo-madeira.jpg);
+        
+        background-attachment: fixed;
+        color: white;
+        text-shadow: black 1px 1px 3px;
+        text-align: center;
+  }
+
+  /* Apagar width no index */
+  /* Max-width altera até tamanho estabelecido */
+  .historia iframe, .localizacao iframe {
+    width: 100%;
+    max-width: 650px;
+ }
+
+ .localizacao {
+    text-align: center;
+ }
+
+/* .localizacao iframe {width:100;} */
+
+footer {
+    height: 200px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.conteudo {
+    background-color: #c8c8eb;
+    border-radius: 10px;
+}
+
+table, td, th {
+    border: solid 2px black;
+
+    /* Remove espaçamento entre as bordas (border-collapse) */
+    border-collapse: collapse;
+}
+
+table {
+    margin: auto;
+    width: 80%;
+}
+
+th, td {padding: 5px;}
+
+/* odd (impar) even (par) */
+tr:nth-child(odd) {background-color: #dfdf4e; }
+
+th {
+    background-color: black;
+    color: white;
+}
+ 
+/* nth:child, first-child são pseudo classes */
+/* nesse caso, first-child configura apenas a primeira informação de dentro do td */
+td:first-child { text-transform: uppercase; }
+td:nth-child(2) {color: red;}
+td:last-child { color:blue}
+
+.imagens img {
+
+border-radius: 100%; 
+transform: scale(0.8);
+transition: 500ms;
+box-shadow: (0,0,0,0.17) 0 0 20px 10px;
+}
+
+figure img:hover { transform: scale(1); }
+
+/* Regras para formulários */
+form {
+    background-color: #f1ecec ;
+    width: 90%;
+    margin: auto;
+    padding: 16px;
+    border-radius: 5px
+
+}
+
+#nome, #email, #nascimento, #assunto, #mensagem, #telefone {
+    width: 100%;
+    border: none;
+    height: 30px;
+    box-shadow: rebeccapurple 0 0 3px ;
+}
+
+#mensagem {height: auto;}
+
+button {
+    border: nome;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 06px;
+}
+
+/* Regras Condicionais usando Media Queries */
+
+@media screen and (min-width: 530px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+
+    h1 { margin-left: 2vw;}
+
+    nav { margin-right: 2vw;
+          margin-top: 0;
+          padding: 0;
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    h1 { font-size: 30px;}
+
+    header {height: 85px; }
+    
+    nav {width: 70%; }
+    
+    nav a {padding: 20px; }
+    
+    .destaque {height: 550px;}
+    
+    p { font-size: 20px;}
+
+}
+
+
+@media screen and (min-width: 100px) {
+    .limitador {
+        max-width: 1000px;
+        margin: auto;
+    }
+    
+}
+
